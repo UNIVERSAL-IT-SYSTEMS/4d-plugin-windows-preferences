@@ -1,0 +1,46 @@
+// !$*UTF8*$!
+{
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Development;
+		activeTarget = 8D01CCC60486CAD60068D4B7 /* 4D Plugin */;
+		codeSenseManager = D107A2E518448809000195D7 /* Code sense */;
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 407144426;
+			PBXWorkspaceStateSaveDate = 407144426;
+		};
+		sourceControlManager = D107A2E418448809000195D7 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	18B684FE06944F8800CC6A1E /* 4DPlugin.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {750, 2353}}";
+			sepNavSelRange = "{303, 0}";
+			sepNavVisRange = "{0, 1099}";
+		};
+	};
+	8D01CCC60486CAD60068D4B7 /* 4D Plugin */ = {
+		activeExec = 0;
+	};
+	D107A2E418448809000195D7 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	D107A2E518448809000195D7 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	D120937E13534DCC00A72CAA /* 4DPlugin.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {750, 706}}";
+			sepNavSelRange = "{329, 0}";
+			sepNavVisRange = "{0, 981}";
+		};
+	};
+}
