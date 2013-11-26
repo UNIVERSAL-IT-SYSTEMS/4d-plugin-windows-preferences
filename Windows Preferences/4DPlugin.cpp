@@ -78,7 +78,7 @@ void SYSTEM_Get_power_status(sLONG_PTR *pResult, PackagePtr pParams)
 	ARRAY_TEXT Param1;
 	ARRAY_TEXT Param2;
 	C_LONGINT returnValue;
-	
+#if VERSIONWIN	
 	SYSTEM_POWER_STATUS status;
 	
 	if(GetSystemPowerStatus(&status))
@@ -171,7 +171,7 @@ void SYSTEM_Get_power_status(sLONG_PTR *pResult, PackagePtr pParams)
 		}
 		
 	}
-	
+#endif		
 	Param1.toParamAtIndex(pParams, 1);
 	Param2.toParamAtIndex(pParams, 2);
 	returnValue.setReturn(pResult);
@@ -186,7 +186,7 @@ void SYSTEM_Set_execution_state(sLONG_PTR *pResult, PackagePtr pParams)
 {
 	C_LONGINT Param1;
 	C_LONGINT returnValue;
-
+#if VERSIONWIN
 	Param1.fromParamAtIndex(pParams, 1);
 	
 	EXECUTION_STATE state = 0;
@@ -202,7 +202,7 @@ void SYSTEM_Set_execution_state(sLONG_PTR *pResult, PackagePtr pParams)
 	
 	if(SetThreadExecutionState(state))
 		returnValue.setIntValue(1);
-
+#endif	
 	returnValue.setReturn(pResult);
 }
 
@@ -213,7 +213,7 @@ void SYSTEM_Set_beep_enabled(sLONG_PTR *pResult, PackagePtr pParams)
 {
 	C_LONGINT Param1;
 	C_LONGINT returnValue;
-
+#if VERSIONWIN
 	Param1.fromParamAtIndex(pParams, 1);
 
 	ULONG enabled;
@@ -221,7 +221,7 @@ void SYSTEM_Set_beep_enabled(sLONG_PTR *pResult, PackagePtr pParams)
 	enabled = Param1.getIntValue();
 	
 	returnValue.setIntValue(SystemParametersInfo(SPI_SETBEEP, enabled, NULL, 0));
-
+#endif	
 	returnValue.setReturn(pResult);
 }
 
@@ -229,7 +229,7 @@ void SYSTEM_Get_beep_enabled(sLONG_PTR *pResult, PackagePtr pParams)
 {
 	C_LONGINT Param1;
 	C_LONGINT returnValue;
-
+#if VERSIONWIN
 	BOOL enabled;
 
 	if(SystemParametersInfo(SPI_GETBEEP, 0, &enabled, 0))
@@ -237,7 +237,7 @@ void SYSTEM_Get_beep_enabled(sLONG_PTR *pResult, PackagePtr pParams)
 		returnValue.setIntValue(1);
 		Param1.setIntValue(enabled);	
 	}
-	
+#endif		
 	Param1.toParamAtIndex(pParams, 1);
 	returnValue.setReturn(pResult);
 }
@@ -249,7 +249,7 @@ void SYSTEM_Set_screensaver_timeout(sLONG_PTR *pResult, PackagePtr pParams)
 {
 	C_LONGINT Param1;
 	C_LONGINT returnValue;
-
+#if VERSIONWIN
 	Param1.fromParamAtIndex(pParams, 1);
 
 	ULONG duration;
@@ -257,7 +257,7 @@ void SYSTEM_Set_screensaver_timeout(sLONG_PTR *pResult, PackagePtr pParams)
 	duration = Param1.getIntValue();
 	
 	returnValue.setIntValue(SystemParametersInfo(SPI_SETSCREENSAVETIMEOUT, duration, NULL, 0));	
-
+#endif	
 	returnValue.setReturn(pResult);
 }
 
@@ -265,7 +265,7 @@ void SYSTEM_Get_screensaver_timeout(sLONG_PTR *pResult, PackagePtr pParams)
 {
 	C_LONGINT Param1;
 	C_LONGINT returnValue;
-
+#if VERSIONWIN
 	ULONG duration;
 
 	if(SystemParametersInfo(SPI_GETSCREENSAVETIMEOUT, 0, &duration, 0))
@@ -273,7 +273,7 @@ void SYSTEM_Get_screensaver_timeout(sLONG_PTR *pResult, PackagePtr pParams)
 		returnValue.setIntValue(1);
 		Param1.setIntValue(duration);	
 	}
-	
+#endif		
 	Param1.toParamAtIndex(pParams, 1);
 	returnValue.setReturn(pResult);
 }
@@ -282,7 +282,7 @@ void SYSTEM_Set_screensaver_active(sLONG_PTR *pResult, PackagePtr pParams)
 {
 	C_LONGINT Param1;
 	C_LONGINT returnValue;
-
+#if VERSIONWIN
 	Param1.fromParamAtIndex(pParams, 1);
 
 	BOOL active;
@@ -290,7 +290,7 @@ void SYSTEM_Set_screensaver_active(sLONG_PTR *pResult, PackagePtr pParams)
 	active = Param1.getIntValue();
 	
 	returnValue.setIntValue(SystemParametersInfo(SPI_SETSCREENSAVEACTIVE, active, NULL, 0));	
-	
+#endif		
 	returnValue.setReturn(pResult);
 }
 
@@ -298,7 +298,7 @@ void SYSTEM_Get_screensaver_active(sLONG_PTR *pResult, PackagePtr pParams)
 {
 	C_LONGINT Param1;
 	C_LONGINT returnValue;
-
+#if VERSIONWIN
 	BOOL active;
 
 	if(SystemParametersInfo(SPI_GETSCREENSAVEACTIVE, 0, &active, 0))
@@ -306,7 +306,7 @@ void SYSTEM_Get_screensaver_active(sLONG_PTR *pResult, PackagePtr pParams)
 		returnValue.setIntValue(1);
 		Param1.setIntValue(active);
 	}
-	
+#endif	
 	Param1.toParamAtIndex(pParams, 1);
 	returnValue.setReturn(pResult);
 }
